@@ -16,7 +16,7 @@
           <div v-for="feature in features" :key="feature.name" class="relative">
             <dt>
               <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                <component :is="feature.icon" class="h-6 w-6" aria-hidden="true" />
+                <img :src="parseStaticUrl(feature.iconUrl)" alt="..." width="16px" height="16px">
               </div>
               <p class="ml-16 text-lg leading-6 font-medium text-gray-900">{{ feature.name }}</p>
             </dt>
@@ -31,40 +31,62 @@
 </template>
 
 <script>
-import { AnnotationIcon, GlobeAltIcon, LightningBoltIcon, ScaleIcon } from '@heroicons/vue/outline'
+// import { AnnotationIcon, GlobeAltIcon, LightningBoltIcon, ScaleIcon } from '@heroicons/vue/outline'
 
-const features = [
-  {
-    name: 'Competitive exchange rates',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: GlobeAltIcon,
-  },
-  {
-    name: 'No hidden fees',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: ScaleIcon,
-  },
-  {
-    name: 'Transfers are instant',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: LightningBoltIcon,
-  },
-  {
-    name: 'Mobile notifications',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    icon: AnnotationIcon,
-  },
-]
+// const features = [
+//   {
+//     name: 'Competitive exchange rates',
+//     description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+//     icon: '/svg/we.svg',
+//   },
+//   {
+//     name: 'No hidden fees',
+//     description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+//     icon: '/svg/we.svg'
+//   },
+//   {
+//     name: 'Transfers are instant',
+//     description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+//     icon: '/svg/we.svg',
+//   },
+//   {
+//     name: 'Mobile notifications',
+//     description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+//     icon: '/svg/we.svg',
+//   },
+// ]
 
 export default {
-  setup() {
+  data () {
     return {
-      features,
-    }
+    };
+  },
+
+   computed: {
+    feature () {
+      return [
+        {
+          name: 'Transfers are instant',
+          description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+          iconUrl: '/svg/icon.svg',
+        },
+        {
+          name: 'Mobile notifications',
+          description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+          iconUrl: '/svg/icon.svg',
+        },
+        {
+          name: 'Competitive exchange rates',
+          description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+          iconUrl: '/svg/icon.svg',
+        },
+        {
+          name: 'No hidden fees',
+          description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+          iconUrl: '/svg/icon.svg',
+        },
+      ];
+    },
   },
 }
 </script>
